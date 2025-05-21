@@ -20,4 +20,29 @@ api.interceptors.request.use(
   }
 );
 
+// Получить все заметки (с поддержкой фильтрации)
+export const fetchNotes = (filters = {}) => {
+  return api.get("/api/notes/", { params: filters });
+};
+
+// Удалить заметку
+export const deleteNote = (id) => {
+  return api.delete(`/api/notes/${id}/`);
+};
+
+// Обновить статус is_completed
+export const toggleNoteComplete = (id, is_completed) => {
+  return api.patch(`/api/notes/${id}/`, { is_completed });
+};
+
+// Обновить заголовок и содержание (редактирование)
+export const updateNote = (id, data) => {
+  return api.patch(`/api/notes/${id}/`, data); // Используем PATCH вместо PUT для частичного обновления
+};
+
+// Создать заметку
+export const createNote = (data) => {
+  return api.post("/api/notes/", data);
+};
+
 export default api;

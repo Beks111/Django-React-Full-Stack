@@ -1,33 +1,159 @@
 .note-container {
-  padding: 10px;
-  margin: 20px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+    padding: 15px;
+    margin: 20px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.note-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .note-title {
-  color: #333;
+    color: #333;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0;
 }
 
 .note-content {
-  color: #666;
+    color: #666;
+    margin: 10px 0;
 }
 
 .note-date {
-  color: #999;
-  font-size: 0.8rem;
+    color: #999;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+}
+
+.note-container.completed {
+    background-color: #e0ffe0;
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+.note-container.loading {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.note-error {
+    color: #f44336;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+/* Стили для формы редактирования */
+.note-edit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.note-edit-input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.note-edit-textarea {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    min-height: 80px;
+    resize: vertical;
+}
+
+/* Контейнер для кнопок */
+.note-actions,
+.note-edit-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+/* Стили для кнопок */
+.edit-button,
+.save-button,
+.cancel-button,
+.delete-button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.edit-button {
+    background-color: #4caf50;
+    color: white;
+}
+
+.edit-button:hover {
+    background-color: #45a049;
+}
+
+.save-button {
+    background-color: #2196f3;
+    color: white;
+}
+
+.save-button:hover {
+    background-color: #1e88e5;
+}
+
+.cancel-button {
+    background-color: #ff9800;
+    color: white;
+}
+
+.cancel-button:hover {
+    background-color: #fb8c00;
 }
 
 .delete-button {
-  background-color: #f44336; /* Red */
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+    background-color: #f44336;
+    color: white;
 }
 
 .delete-button:hover {
-  background-color: #d32f2f; /* Darker red */
+    background-color: #d32f2f;
+}
+
+/* Поддержка тёмной темы */
+@media (prefers-color-scheme: dark) {
+    .note-container {
+        background-color: #2a2a2a;
+        border-color: #444;
+    }
+
+    .note-title {
+        color: #e0e0e0;
+    }
+
+    .note-content {
+        color: #bbb;
+    }
+
+    .note-date {
+        color: #888;
+    }
+
+    .note-container.completed {
+        background-color: #1a3c34;
+    }
+
+    .note-edit-input,
+    .note-edit-textarea {
+        background-color: #333;
+        color: #e0e0e0;
+        border-color: #555;
+    }
 }
